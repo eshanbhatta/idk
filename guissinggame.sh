@@ -1,13 +1,20 @@
 #!/bin/bash
 
-# Get the number of files in the current directory
-file_count=$(ls -1 | wc -l)
+# Function to count the number of files in the current directory
+count_files() {
+    local count=$(ls -1 | wc -l)
+    echo $count
+}
 
+# Main program
 echo "Welcome to the Guessing Game!"
-echo "Guess how many files are in the current directory:"
+echo "Can you guess how many files are in the current directory?"
+
+# Get the actual number of files using the function
+file_count=$(count_files)
 
 while true; do
-    # Prompt the user for a guess
+    # Prompt the user for their guess
     read -p "Enter your guess: " guess
 
     # Check if the input is a valid number
